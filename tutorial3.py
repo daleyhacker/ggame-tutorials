@@ -23,6 +23,12 @@ ball.scale = 0.1
 ball.direction = 1
 ball.go = True
 
+# Sounds
+pew1_asset = SoundAsset("sounds/pew1.mp3")
+pew1 = Sound(pew1_asset)
+pop_asset = SoundAsset("sounds/reappear.mp3")
+pop = Sound(pop_asset)
+
 def reverse(b):
     b.direction *= -1
 # Set up function for handling screen refresh
@@ -39,10 +45,12 @@ def spaceKey(event):
 
 # Handle the "reverse" key
 def reverseKey(event):
+    pop.play()
     reverse(ball)
 
 # Handle the mouse click
 def mouseClick(event):
+    pew1.play()
     ball.x = event.x
     ball.y = event.y
 
